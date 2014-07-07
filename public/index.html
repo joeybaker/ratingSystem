@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title>Restaurant Rating System</title>
+</head>
+<body>
+  <table id='restaurant-table'>
+    <tr>
+      <td>Avg. Rating</td>
+      <td>Restaurant Name</td>
+      <td>Your Rating</td>
+    </tr>
+    <tr class='inputRow'>
+      <td></td>
+      <td>
+        <input placeholder='New restaurant'>
+        <button class='submitButton'>Submit</button>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</body>
+<script type="text/template" id="restaurant-template">
+  <td><%= averageRating %></td>
+  <td class='restaurantName'><!--
+  --><%= name %><!--
+  --><button class='deleteButton'>Delete</button>
+  </td>
+  <td>
+    <select class='yourRating'>
+      <option> - </option>
+      <option>5</option>
+      <option>4</option>
+      <option>3</option>
+      <option>2</option>
+      <option>1</option>
+    </select>
+  </td>
+</script>
+<script type="text/javascript" src='libs/jquery/dist/jquery.js'></script>
+<script type="text/javascript" src='libs/underscore/underscore.js'></script>
+<script type="text/javascript" src='libs/backbone/backbone.js'></script>
+<script type="text/javascript" src='js/models/restaurant.js'></script>
+<script type="text/javascript" src='js/collections/restaurantList.js'></script>
+<script type="text/javascript" src='js/views/restaurantView.js'></script>
+<script type="text/javascript" src='js/views/app.js'></script>
+<link rel="stylesheet" type="text/css" href="styles/styles.css">
+</html>

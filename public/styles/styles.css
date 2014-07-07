@@ -1,0 +1,27 @@
+/*styles.css*/
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td {
+  border: 1px solid gray;
+  text-align: center;
+}
+
+.inputRow input {
+  float: left;
+}
+
+.inputRow button {
+  float: right;
+}
+
+.restaurantName {
+  text-align: left;
+}
+
+.restaurantName button {
+  float: right;
+}

@@ -25,14 +25,15 @@ app.RestaurantView = Backbone.View.extend({
 
   changeRatingListener: function() {
     var self = this;
-    var yourRatingPrev;
+    // var yourRatingPrev;
     var yourRating;
     var $selectEl = this.$el.find('.yourRating');
     $selectEl.on('change', function() {
-      yourRatingPrev = yourRating || '-';
+      // yourRatingPrev = yourRating || '-';
       yourRating = parseInt($selectEl.val());
       // console.log(yourRatingPrev, yourRating);
-      this.model.set({'yourRating': yourRating, 'yourRatingPrev': yourRatingPrev});
+      // this.model.set({'yourRating': yourRating, 'yourRatingPrev': yourRatingPrev});
+      this.model.set({'yourRating': yourRating});
       this.updateRestaurantRating();
     }.bind(this));
   },
@@ -56,6 +57,7 @@ app.RestaurantView = Backbone.View.extend({
   updateRestaurantRating: function() {
     var self = this;
     self.model.save();
+    self.$el.find('.yourRating').attr('disabled', 'disabled');
     // console.log(self.model.attributes);
   }
 

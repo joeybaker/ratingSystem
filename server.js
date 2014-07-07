@@ -1,4 +1,8 @@
-var express = require('express')
+var express = require('express');
+var mongoose = require('mongoose');
+
+// mongoose.connect( 'mongodb://localhost/library_database' );
+mongoose.connect( 'mongodb://localhost/restaurant_database');
 
 var app = express();
 

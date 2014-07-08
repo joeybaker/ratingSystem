@@ -14,5 +14,4 @@ app.Restaurant = Backbone.Model.extend({
     yourRatingPrev: '-'
   }
 
-
 });

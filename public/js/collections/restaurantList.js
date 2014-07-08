@@ -9,5 +9,3 @@ app.RestaurantList = Backbone.Collection.extend({
   url: '/restaurants'
 
 });
-
-// app.RestaurantList = new RestaurantList();

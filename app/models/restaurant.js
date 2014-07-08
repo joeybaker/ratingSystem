@@ -22,18 +22,19 @@ RestaurantModel.drop = function() {
 RestaurantModel.loadExampleData = function() {
   
   RestaurantModel({
-      name: 'Assab Erritrean',
-      averageRating: 4.5,
-      ratings: [4,5],
-      numberOfRatings: 2,
-    }).save();
+    name: 'Assab Erritrean',
+    averageRating: 4.5,
+    ratings: [4,5],
+    numberOfRatings: 2,
+  }).save();
   
   RestaurantModel({
-      name: 'Shanghai Dumpling King',
-      averageRating: 4.0,
-      ratings: [3, 4, 5],
-      numberOfRatings: 3,
-    }).save();
+    name: 'Shanghai Dumpling King',
+    averageRating: 4.0,
+    ratings: [3, 4, 5],
+    numberOfRatings: 3,
+  }).save();
+
 };
 
 module.exports = RestaurantModel;

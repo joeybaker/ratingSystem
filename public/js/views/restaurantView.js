@@ -13,6 +13,7 @@ app.RestaurantView = Backbone.View.extend({
   events: {},
   
   render: function() {
+    this.roundAverageRating();
     this.$el.html( this.template(this.model.toJSON()) );
     this.addListeners();
     return this;
@@ -61,6 +62,7 @@ app.RestaurantView = Backbone.View.extend({
 
     function success(model, res, options) {
       model.set('averageRating', res.averageRating);
+      self.roundAverageRating();
       renderAverageRating();
     };
 
@@ -68,6 +70,12 @@ app.RestaurantView = Backbone.View.extend({
       self.$el.find('.averageRating').text(self.model.get('averageRating'));
     }
 
+  },
+
+  roundAverageRating: function() {
+    var avgRating = this.model.get('averageRating') || 0;
+    this.model.set('averageRating', Math.round(avgRating * 10) / 10);
+    if(!(this.model.get('averageRating'))) this.model.set('averageRating', "-");
   }
 
 });

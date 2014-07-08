@@ -13,7 +13,6 @@ app.AppView = Backbone.View.extend({
 
   renderOne: function(rest) {
     var rv = new app.RestaurantView({'model': rest});
-    if(rv.model.get('averageRating') ===0 ) rv.model.set('averageRating', "-");
     $('#restaurant-table').append( rv.render().el );
     return rv;
   },

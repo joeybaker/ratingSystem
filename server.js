@@ -2,6 +2,7 @@ var express = require('express');
 var RestaurantModel = require(__dirname + '/app/models/restaurant');
 var routes = require(__dirname + '/app/routes.js');
 
+//OPTIONAL:
 RestaurantModel.drop();
 RestaurantModel.loadExampleData();
 

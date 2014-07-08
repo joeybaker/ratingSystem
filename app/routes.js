@@ -35,7 +35,7 @@ module.exports = function(app, RestaurantModel) {
       if(!err) {
         res.json({deleted: true, id: req.params.id});
       }
-      else res.send('Error deleting from database');
+      else res.send('Error deleting from database: ' + err);
     })
   });
 
@@ -50,11 +50,11 @@ module.exports = function(app, RestaurantModel) {
           if(!err) {
             res.send({averageRating: restaurant.averageRating});
           } else {
-            res.send('Error updating database');
+            res.send('Error updating database: ' + err);
           }
         });
       } else {
-        console.log('Error updating rating');
+        console.log('Error updating rating: ' + err);
       }
     });
   });

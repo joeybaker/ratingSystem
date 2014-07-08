@@ -1,8 +1,8 @@
 var express = require('express');
-var mongoose = require('mongoose');
+var RestaurantModel = require(__dirname + '/app/models/restaurant');
 
-// mongoose.connect( 'mongodb://localhost/library_database' );
-mongoose.connect( 'mongodb://localhost/restaurant_database');
+RestaurantModel.drop();
+RestaurantModel.loadExampleData();
 
 var app = express();
 
@@ -14,16 +14,31 @@ app.configure(function() {
   app.use(express.json());  //needed to parse body of req object from post requests
 });
 
-var restaurants = [{id: 1, name: 'Assab', averageRating: 4.5, yourRating: 5}, {id: 2, name:'Shanghai Dumping King', averageRating: 4.2, yourRating: 4}];
-
 app.get('/restaurants', function(req, res) {
-  console.log(restaurants);
-  res.json(restaurants);
+  var all = RestaurantModel.find({}, 'name averageRating', function(err, restaurants) {
+    if(!err) {
+      console.log(restaurants);
+      res.json(restaurants);
+    }
+  });
 });
 
 app.post('/restaurants', function(req, res) {
+  
   console.log(req.body);
-  res.json({myId: 123});
+  var restaurant = RestaurantModel({
+    name: req.body.name
+  });
+
+  restaurant.save(function(err) {
+    if(!err) {
+      console.log(restaurant);
+      res.json({_id: restaurant._id, name: restaurant.name});
+    } else {
+      res.send("Error connecting to database");
+    }
+  });
+
 });
 
 app.delete('/restaurants/:id', function(req, res) {

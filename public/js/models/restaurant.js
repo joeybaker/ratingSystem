@@ -8,7 +8,7 @@ app.Restaurant = Backbone.Model.extend({
   // id: null,
 
   defaults: {
-    id: null,
+    _id: null,
     averageRating: '-',
     name: 'My Fav Restaurant',
     yourRating: '-',

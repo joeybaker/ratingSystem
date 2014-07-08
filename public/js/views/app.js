@@ -49,7 +49,7 @@ app.AppView = Backbone.View.extend({
     };
 
     function success(model, res, options) {
-      console.log('TODO: set id of the model:', res);
+      model.set('_id', res._id);
       var restView = this.renderOne(newRestModel);
     };
   }

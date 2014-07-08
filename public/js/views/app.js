@@ -22,6 +22,8 @@ app.AppView = Backbone.View.extend({
     var rl = app.restList;
     rl.on('reset', function(list) {
       list.forEach(function(rest) {
+        rest.set('id', rest.attributes._id);
+        delete rest.attributes._id;
         self.renderOne(rest);
       });
     });
@@ -49,7 +51,7 @@ app.AppView = Backbone.View.extend({
     };
 
     function success(model, res, options) {
-      model.set('_id', res._id);
+      model.set('id', res._id);
       var restView = this.renderOne(newRestModel);
     };
   }

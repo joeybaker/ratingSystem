@@ -19,8 +19,9 @@
     </tr>
   </table>
 </body>
+
 <script type="text/template" id="restaurant-template">
-  <td><%= averageRating %></td>
+  <td class='averageRating'><%= averageRating %></td>
   <td class='restaurantName'><!--
   --><%= name %><!--
   --><button class='deleteButton'>Delete</button>
@@ -36,6 +37,7 @@
     </select>
   </td>
 </script>
+
 <script type="text/javascript" src='libs/jquery/dist/jquery.js'></script>
 <script type="text/javascript" src='libs/underscore/underscore.js'></script>
 <script type="text/javascript" src='libs/backbone/backbone.js'></script>

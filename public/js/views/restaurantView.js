@@ -52,7 +52,23 @@ app.RestaurantView = Backbone.View.extend({
 
   updateRestaurantRating: function() {
     var self = this;
-    self.model.save();
+
+    self.model.save({}, {error: error, success: success.bind(this)});
+
+    function error(model, res, options) {
+      console.log(res);
+    };
+
+    function success(model, res, options) {
+      model.set('averageRating', res.averageRating);
+      // var restView = self.renderOne();
+      renderAverageRating();
+    };
+
+    function renderAverageRating() {
+      self.$el.find('.averageRating').text(self.model.get('averageRating'));
+    }
+
     self.$el.find('.yourRating').attr('disabled', 'disabled');
   }
 

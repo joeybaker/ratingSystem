@@ -7,7 +7,8 @@ mongoose.connect( 'mongodb://localhost/restaurant_database');
 var Restaurant = new mongoose.Schema({
   name: String,
   averageRating: Number,
-  ratings: []
+  ratings: [],
+  numberOfRatings: Number
 });
 
 var RestaurantModel = mongoose.model( 'Restaurant', Restaurant );
@@ -23,13 +24,15 @@ RestaurantModel.loadExampleData = function() {
   RestaurantModel({
       name: 'Assab Erritrean',
       averageRating: 4.5,
-      ratings: [4,5]
+      ratings: [4,5],
+      numberOfRatings: 2,
     }).save();
   
   RestaurantModel({
       name: 'Shanghai Dumpling King',
       averageRating: 4.0,
-      ratings: [3, 4, 5]
+      ratings: [3, 4, 5],
+      numberOfRatings: 3,
     }).save();
 };
 
